@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <title>主要國家旅客入境台灣圓餅圖</title>
+
+    <!-- HighCharts CDN -->
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+
+    <style>
+        body {
+            font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+            margin: 40px;
+            background-color: #fafafa;
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        h3 {
+            text-align: center;
+            font-size: 18px;
+            color: #666;
+            margin-top: 0;
+        }
+
+        #container {
+            width: 75%;
+            margin: 40px auto;
+        }
+
+        .content {
+            width: 75%;
+            margin: 0 auto;
+            font-size: 18px;
+            line-height: 1.8;
+            text-align: justify;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>2024年主要國家旅客入境台灣圓餅圖</h1>
+    <h3>資料來源：交通部觀光署（112–113 年度合計）</h3>
+
+    <div id="container"></div>
+
+    <div class="content">
+        <p>
+            本圖呈現 2024 年（包含 112 與 113 年度資料）主要旅客來源國家入境台灣的人數比例。
+            其中，日本與韓國為佔比最高的兩大來源國，其次依序為美國、新加坡、加拿大與澳洲。
+            透過圓餅圖的方式，可以清楚了解不同國家旅客在整體入境人數中的分佈情況，有助於
+            分析台灣觀光市場的主要客群結構。
+        </p>
+
+        <p>
+            圓餅圖適合呈現「比例關係」的資料類型，能快速比較不同群體之間的差異。從圖中可發現，
+            東亞地區國家的旅客在台灣觀光市場中仍占相當重要的地位，而其他國家雖佔比較小，但依舊
+            是台灣觀光發展不可忽視的組成部分。
+        </p>
+    </div>
+
+    <script>
+        Highcharts.chart('container', {
+            chart: {
+                type: 'pie'
+            },
+            title: {
+                text: '主要國家旅客入境台灣分佈（總計）'
+            },
+            subtitle: {
+                text: '資料來源：交通部觀光署'
+            },
+            tooltip: {
+                pointFormat: '<b>{point.y}</b> 人<br>比例: <b>{point.percentage:.1f}%</b>'
+            },
+            accessibility: {
+                point: { valueSuffix: '人' }
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: true,
+                        format: '{point.name}: {point.percentage:.1f} %'
+                    }
+                }
+            },
+            series: [{
+                name: '旅客人數',
+                colorByPoint: true,
+                data: [
+                    { name: '日本 Japan', y: 2244512 },
+                    { name: '韓國 Korea', y: 1755920 },
+                    { name: '新加坡 Singapore', y: 823244 },
+                    { name: '美國 USA', y: 1194503 },
+                    { name: '加拿大 Canada', y: 261371 },
+                    { name: '澳洲 Australia', y: 214036 }
+                ]
+            }]
+        });
+    </script>
+
+</body>
+</html>
